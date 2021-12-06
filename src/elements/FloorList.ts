@@ -1,16 +1,16 @@
-import { BuildingFloor } from "./BuildingFloor";
+import { FloorPanel } from "./FloorPanel";
 
 export class FloorList extends HTMLElement {
     totalFloors = 0;
-    floors: Array<BuildingFloor> = [];
+    floors: Array<FloorPanel> = [];
     constructor(totalFloors: number) {
         super();
         this.totalFloors = totalFloors;
 
         for (let i = 0; i < totalFloors; i++) {
-            const floor = new BuildingFloor(i);
+            const floor = new FloorPanel(i);
             this.floors.push(floor);
-            this.appendChild(floor);
+            this.prepend(floor);
         }
     }
 

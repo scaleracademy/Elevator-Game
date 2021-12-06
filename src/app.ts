@@ -1,9 +1,10 @@
 import { DownButton } from './elements/DownButton';
-import { BuildingFloor } from './elements/BuildingFloor';
+import { FloorPanel } from './elements/FloorPanel';
 import { UpButton } from './elements/UpButton';
 import { Elevator } from './entities/Elevator';
 import { FloorBtn } from './entities/FloorBtn';
 import { FloorList } from './elements/FloorList';
+import { ElevatorBox } from './elements/ElevatorBox';
 
 const config = {
     FLOORS: 5,
@@ -11,8 +12,9 @@ const config = {
 }
 window.customElements.define('up-btn', UpButton);
 window.customElements.define('down-btn', DownButton);
-window.customElements.define('bldg-floor', BuildingFloor);
+window.customElements.define('floor-panel', FloorPanel);
 window.customElements.define('floor-list', FloorList);
+window.customElements.define('elevator-box', ElevatorBox);
 
 
 export class App {

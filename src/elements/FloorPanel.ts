@@ -1,7 +1,7 @@
 import { DownButton } from "./DownButton";
 import { UpButton } from "./UpButton";
 
-export class BuildingFloor extends HTMLElement {
+export class FloorPanel extends HTMLElement {
     floorNum = 0;
     up = new UpButton();
     down = new DownButton();
@@ -13,6 +13,7 @@ export class BuildingFloor extends HTMLElement {
     }
 
     connectedCallback() {
+        this.setAttribute('floor-id', this.floorNum.toString());
         this.classList.add('floor')
     }
 }
