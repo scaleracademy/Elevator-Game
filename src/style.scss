@@ -62,7 +62,7 @@
       height: 40px;
       width: 40px;
       background-color: brown;
-      transition: 2s;
+      transition: 0.5s;
     }
 
     &[door-open="true"] {
@@ -70,7 +70,24 @@
         width: 0px;
       }
     }
+
+    &:first-child {
+      animation: elevator-move 8s ease-in-out infinite;
+    }
     
   }
   
+}
+
+@keyframes elevator-move {
+  35% {
+    transform: translateY(240px);
+  }
+  50% {
+    transform: translateY(240px);
+  }
+  85% {
+    transform: translateY(0px);
+  }
+
 }
