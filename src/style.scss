@@ -1,0 +1,51 @@
+.building {
+  display: inline-block;
+  .floor {
+    outline: solid 1px red;
+    display: block;
+    width: 150px;
+    height: 80px;
+
+    .floor-btn {
+      margin: 20px;
+      padding: 2px;
+      display: inline-block;
+      outline: solid 1px blue;
+      width: 20px;
+      height: 20px;
+      color: blue;
+    }
+
+    .pressed {
+      background-color: blue;
+      color: white;
+    }
+
+    .up::after {
+      content: "▲";
+    }
+
+    .down::after {
+      content: "▼";
+    }
+  }
+  :first-child .up {
+    visibility: hidden;
+  }
+  :last-child .down {
+    visibility: hidden;
+  }
+}
+#elevators {
+  height: 100%;
+  margin-left: 200px;
+  display: inline-block;
+  position: absolute;
+  .elevator {
+    margin-left: 50px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: brown;
+  }
+}
