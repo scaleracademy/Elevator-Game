@@ -1,9 +1,25 @@
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.building {
+
+.elevator-btn {
+  margin: 20px;
+  padding: 2px;
   display: inline-block;
-  .floor {
+  outline: solid 1px blue;
+  width: 20px;
+  height: 20px;
+  color: blue;
+
+  &.pressed {
+    background-color: blue;
+    color: white;
+  }
+}
+
+floor-list {
+  display: inline-block;
+  floor-panel {
     outline: solid 1px red;
     display: block;
     width: 150px;
@@ -12,71 +28,75 @@
     &::after {
       padding: 3px;
       border-radius: 4px;
-      background-color: blue;
+      background-color: red;
       color: white;
       content: attr(floor-id);
     }
 
-    .floor-btn {
-      margin: 20px;
-      padding: 2px;
-      display: inline-block;
-      outline: solid 1px blue;
-      width: 20px;
-      height: 20px;
-      color: blue;
-    }
-
-    .pressed {
-      background-color: blue;
-      color: white;
-    }
-
-    .up::after {
+    up-btn::after {
       content: "▲";
     }
 
-    .down::after {
+    down-btn::after {
       content: "▼";
     }
   }
-  :first-child .up {
+  :first-child up-btn {
     visibility: hidden;
   }
-  :last-child .down {
+  :last-child down-btn {
     visibility: hidden;
   }
 }
-.elevators {
+elevator-list {
   position: absolute;
-  .elevator {
-    margin-left: 200px;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    border: 2px solid brown;
+  height: 100%;
 
-    &::before {
-      content: "";
-      display: block;
+  elevator-container {
+    display: block;
+    height: 100%;
+    margin-left: 20px;
+    elevator-box {
+      margin-left: 60px;
+      position: relative;
+      display: inline-block;
       height: 40px;
       width: 40px;
-      background-color: brown;
-      transition: 0.5s;
-    }
+      border: 2px solid brown;
 
-    &[door-open="true"] {
       &::before {
-        width: 0px;
+        content: "";
+        display: block;
+        height: 40px;
+        width: 40px;
+        background-color: brown;
+        transition: 0.5s;
+      }
+
+      &[door-open="true"] {
+        &::before {
+          width: 0px;
+        }
+      }
+
+      &:first-child {
+        animation: elevator-move 8s ease-in-out infinite;
       }
     }
 
-    &:first-child {
-      animation: elevator-move 8s ease-in-out infinite;
+    .elevator-btn {
+      display: block;
+      position: relative;
+      top: -84px;
+      height: 20px;
+      margin-top: 56px;
+      
+      &::after {
+        padding: 4px;
+        content: attr(floor-id);
+      }
     }
-    
   }
-  
 }
 
 @keyframes elevator-move {
@@ -89,5 +109,4 @@
   85% {
     transform: translateY(0px);
   }
-
 }

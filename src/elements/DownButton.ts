@@ -1,8 +1,4 @@
-import { FloorButton } from "./FloorButton";
+import { PressableButton } from "./PressableButton";
 
-export class DownButton extends FloorButton {
-    connectedCallback() {
-        super.connectedCallback();
-        this.classList.add('down');
-    }
+export class DownButton extends PressableButton {
 }

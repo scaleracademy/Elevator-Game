@@ -14,7 +14,4 @@ export class FloorList extends HTMLElement {
         }
     }
 
-    connectedCallback() {
-        this.classList.add("building");
-    }
 }

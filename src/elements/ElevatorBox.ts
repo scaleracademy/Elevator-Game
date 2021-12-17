@@ -7,7 +7,6 @@ export class ElevatorBox extends HTMLElement {
     }
 
     connectedCallback() {
-        this.classList.add('elevator');
 
         this.setAttribute('elevator-id', this.elevatorId.toString());
     }

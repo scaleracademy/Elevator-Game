@@ -14,6 +14,5 @@ export class FloorPanel extends HTMLElement {
 
     connectedCallback() {
         this.setAttribute('floor-id', this.floorNum.toString());
-        this.classList.add('floor')
     }
 }

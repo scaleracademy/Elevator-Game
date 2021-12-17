@@ -1,21 +1,15 @@
-export class FloorButton extends HTMLElement {
-    pressed = false;
+import { PressableButton } from "./PressableButton";
 
-    connectedCallback() {
-        this.classList.add('floor-btn');
+export class FloorButton extends PressableButton {
+    floorId: number;
+
+    constructor(floorId: number) {
+        super()
+        this.floorId = floorId
     }
 
-    press() {
-        this.pressed = true;
-        this.classList.add('pressed');
-    }
-
-    reset() {
-        this.pressed = false;
-        this.classList.remove('pressed');
-    }
-
-    onclick = function () {
-        this.press();
+    connectedCallback(): void {
+        super.connectedCallback()
+        this.setAttribute('floor-id', this.floorId.toString())
     }
 }

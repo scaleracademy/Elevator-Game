@@ -1,4 +1,4 @@
-export class FloorBtn {
+export class Floor {
     up = false;
     down = false;
 }
