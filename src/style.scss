@@ -2,7 +2,8 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.elevator-btn {
+floor-btn,
+elevator-btn {
   margin: 20px;
   padding: 2px;
   display: inline-block;
@@ -33,18 +34,18 @@ floor-list {
       content: attr(floor-id);
     }
 
-    up-btn::after {
+    [button-direction="up"]::after {
       content: "▲";
     }
 
-    down-btn::after {
+    [button-direction="down"]::after {
       content: "▼";
     }
   }
-  :first-child up-btn {
+  :first-child [button-direction="up"] {
     visibility: hidden;
   }
-  :last-child down-btn {
+  :last-child [button-direction="down"] {
     visibility: hidden;
   }
 }
@@ -84,13 +85,13 @@ elevator-list {
       }
     }
 
-    .elevator-btn {
+    elevator-btn {
       display: block;
       position: relative;
       top: -84px;
       height: 20px;
       margin-top: 56px;
-      
+
       &::after {
         padding: 4px;
         content: attr(floor-id);

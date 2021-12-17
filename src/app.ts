@@ -1,24 +1,23 @@
-import { DownButton } from './elements/DownButton';
+import { FloorButton } from './elements/FloorButton';
 import { FloorPanel } from './elements/FloorPanel';
-import { UpButton } from './elements/UpButton';
 import { FloorList } from './elements/FloorList';
 import { ElevatorBox } from './elements/ElevatorBox';
 import { ElevatorList } from './elements/ElevatorList';
 import { ElevatorContainer } from './elements/ElevatorContainer';
-import { FloorButton } from './elements/FloorButton';
+import { ElevatorButton } from './elements/ElevatorButton';
 
 const config = {
     FLOORS: 5,
     ELEVATORS: 1,
 }
-window.customElements.define('up-btn', UpButton);
-window.customElements.define('down-btn', DownButton);
+
 window.customElements.define('floor-btn', FloorButton);
 window.customElements.define('floor-panel', FloorPanel);
 window.customElements.define('floor-list', FloorList);
 window.customElements.define('elevator-box', ElevatorBox);
 window.customElements.define('elevator-list', ElevatorList);
 window.customElements.define('elevator-container', ElevatorContainer);
+window.customElements.define('elevator-btn', ElevatorButton);
 
 export class UI {
     building: FloorList;
@@ -46,4 +45,7 @@ export class App {
 
 window.onload = function () {
     globalThis.app = new App();
+    addEventListener("button_pressed", (ev: Event) => {
+        console.log((ev as CustomEvent).detail)
+    })
 }

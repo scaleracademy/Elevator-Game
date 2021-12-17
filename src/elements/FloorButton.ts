@@ -1,15 +1,18 @@
-import { PressableButton } from "./PressableButton";
+import { ButtonType, PressableButton } from "./PressableButton";
+
+type ButtonDirection = "up" | "down"
 
 export class FloorButton extends PressableButton {
-    floorId: number;
+    buttonType: ButtonType = "floor";
+    buttonDirection: ButtonDirection
 
-    constructor(floorId: number) {
+    constructor(btnDir: ButtonDirection) {
         super()
-        this.floorId = floorId
+        this.buttonDirection = btnDir;
     }
 
     connectedCallback(): void {
         super.connectedCallback()
-        this.setAttribute('floor-id', this.floorId.toString())
+        this.setAttribute("button-direction", this.buttonDirection)
     }
 }

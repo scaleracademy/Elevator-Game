@@ -1,10 +1,9 @@
-import { DownButton } from "./DownButton";
-import { UpButton } from "./UpButton";
+import { FloorButton } from "./FloorButton";
 
 export class FloorPanel extends HTMLElement {
     floorNum = 0;
-    up = new UpButton();
-    down = new DownButton();
+    up = new FloorButton("up");
+    down = new FloorButton("down");
     constructor(floorNum: number) {
         super();
         this.floorNum = floorNum;
